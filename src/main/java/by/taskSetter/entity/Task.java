@@ -5,6 +5,11 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * Класс Task представляет задачу с названием, описанием, сроком выполнения и статусом.
+ * Реализует интерфейс Serializable для сохранения в файл.
+ */
+
 public class Task implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -68,6 +73,6 @@ public class Task implements Serializable {
 
     @Override
     public String toString() {
-        return name + " (" + (status == TaskStatus.COMPLETED ? "Выполнена" : "Невыполнена") + ")";
+        return name + " (" + (status == TaskStatus.COMPLETED ? "Выполнена" : "Не выполнена") + ")";
     }
 }

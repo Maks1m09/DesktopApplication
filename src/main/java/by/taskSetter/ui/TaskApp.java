@@ -31,6 +31,11 @@ public class TaskApp extends JFrame {
     private JComboBox<String> filterComboBox;
     private final TaskManager taskManager;
 
+    /**
+     * Основное окно приложения для управления задачами.
+     * Реализует интерфейс с таблицей задач, кнопками для добавления, редактирования и удаления,
+     * а также фильтром по статусу задач.
+     */
 
     public TaskApp() {
         LOGGER.info("Инициализация приложения");
@@ -47,6 +52,11 @@ public class TaskApp extends JFrame {
         initListeners();
 
         refreshTaskList();
+
+        /**
+         * Обработка закрытия окна: сохранение задач и подтверждение выхода
+         */
+
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -66,6 +76,10 @@ public class TaskApp extends JFrame {
         });
     }
 
+    /**
+     * Инициализация компонентов интерфейса: таблицы, кнопок, фильтра.
+     */
+
     private void initComponents() {
         LOGGER.info("Инициализация компонентов интерфейса");
         String[] columnNames = {"Задача", "Статус"};
@@ -83,22 +97,39 @@ public class TaskApp extends JFrame {
         filterComboBox = new JComboBox<>(new String[]{"Все", "Выполненные", "Невыполненные"});
     }
 
+    /**
+     * Размещение компонентов интерфейса на окне.
+     */
+
     private void layoutComponents() {
         LOGGER.info("Размещение компонентов интерфейса");
         JPanel topPanel = new JPanel(new BorderLayout());
+
+        // Панель фильтрации
+
         JPanel filterPanel = new JPanel();
         filterPanel.add(new JLabel("Фильтр:"));
         filterPanel.add(filterComboBox);
         topPanel.add(filterPanel, BorderLayout.WEST);
+
+        // Панель кнопок
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(addButton);
         buttonPanel.add(editButton);
         buttonPanel.add(deleteButton);
         topPanel.add(buttonPanel, BorderLayout.EAST);
         add(topPanel, BorderLayout.NORTH);
+
+        // Скролл для таблицы задач
+
         JScrollPane scrollPane = new JScrollPane(taskTable);
         add(scrollPane, BorderLayout.CENTER);
     }
+
+    /**
+     * Настройка обработчиков событий для кнопок и элементов интерфейса.
+     */
 
     private void initListeners() {
         addButton.addActionListener(e -> {
@@ -151,6 +182,9 @@ public class TaskApp extends JFrame {
             LOGGER.info("Выбран фильтр: " + selectedFilter);
             applyFilter();
         });
+
+        // Обработка двойного клика по строке таблицы для редактирования
+
         taskTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -165,6 +199,10 @@ public class TaskApp extends JFrame {
         });
     }
 
+    /**
+     * Обновляет отображение списка задач в таблице.
+     */
+
     private void refreshTaskList() {
         LOGGER.fine("Обновление отображения списка задач");
         tableModel.setRowCount(0);
@@ -173,6 +211,10 @@ public class TaskApp extends JFrame {
             tableModel.addRow(new Object[]{task.getName(), statusStr});
         }
     }
+
+    /**
+     * Применяет выбранный фильтр к списку задач.
+     */
 
     private void applyFilter() {
         String selectedFilter = (String) filterComboBox.getSelectedItem();
@@ -194,12 +236,21 @@ public class TaskApp extends JFrame {
                     break;
             }
         }
+
+        // Обновляем таблицу с отфильтрованными задачами
+
         tableModel.setRowCount(0);
         for (Task task : filteredTasks) {
             String statusStr = task.getStatus().toString();
             tableModel.addRow(new Object[]{task.getName(), statusStr});
         }
     }
+
+    /**
+     * Открывает диалоговое окно для добавления или редактирования задачи.
+     *
+     * @param task задача для редактирования или null для создания новой.
+     */
 
     private void openTaskDialog(Task task) {
         TaskDialog dialog = new TaskDialog(this, task);

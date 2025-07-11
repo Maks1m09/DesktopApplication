@@ -3,6 +3,12 @@ package by.taskSetter.utils;
 import java.io.IOException;
 import java.util.logging.*;
 
+/**
+ * Класс LoggerConfigurator предназначен для настройки логгирования в приложении.
+ * Он настраивает глобальный логгер, устанавливает уровень логирования, а также добавляет
+ * обработчики для вывода логов в консоль и файл.
+ */
+
 public class LoggerConfigurator {
 
     public static void setup() {

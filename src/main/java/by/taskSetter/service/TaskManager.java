@@ -5,6 +5,10 @@ import by.taskSetter.entity.Task;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс TaskManager управляет списком задач: добавление, удаление и обновление задач.
+ */
+
 public class TaskManager {
     private List<Task> tasks;
 

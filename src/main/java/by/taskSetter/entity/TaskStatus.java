@@ -1,8 +1,12 @@
 package by.taskSetter.entity;
 
+/**
+ * Enum TaskStatus представляет возможные статусы выполнения задач: выполнена или не выполнена.
+ */
+
 public enum TaskStatus {
 
-    NOT_COMPLETED("Невыполнена"),
+    NOT_COMPLETED("Не выполнена"),
     COMPLETED("Выполнена");
 
     private final String displayName;

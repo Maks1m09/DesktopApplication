@@ -47,7 +47,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.TaskDialogTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="by.taskSetter.Main" />
       <module name="Dekstop" />
@@ -124,10 +124,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TaskDialogTest" />
         <item itemvalue="JUnit.TaskStorageTest" />
         <item itemvalue="JUnit.TaskManagerTest" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TaskStorageTest.testLoadWhenFileDoesNotExist" />
       </list>
     </recent_temporary>
@@ -142,7 +142,7 @@
       <updated>1751531551322</updated>
       <workItem from="1751531552734" duration="45568000" />
       <workItem from="1752079289055" duration="22861000" />
-      <workItem from="1752165607530" duration="24108000" />
+      <workItem from="1752165607530" duration="29189000" />
     </task>
     <servers />
   </component>

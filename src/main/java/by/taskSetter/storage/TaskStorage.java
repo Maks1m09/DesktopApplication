@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * Класс TaskStorage обеспечивает сохранение и загрузку списка задач из файла,
+ * используя сериализацию объектов Java. Также ведется логирование операций и обработка ошибок.
+ */
+
 public class TaskStorage {
 
     private static final String FILE_NAME = System.getProperty("task.storage.file", "tasks.txt");

@@ -10,6 +10,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.logging.Logger;
 
+/**
+ * Класс TaskDialog представляет собой диалоговое окно для добавления или редактирования задачи.
+ * Он позволяет пользователю ввести или изменить информацию о задаче, такую как название, описание,
+ * срок выполнения и статус. Диалог обеспечивает валидацию введенных данных и логирование важных событий.
+ */
 
 public class TaskDialog extends JDialog {
     private JTextField nameField;
@@ -55,6 +60,9 @@ public class TaskDialog extends JDialog {
         GridBagConstraints gbc = new GridBagConstraints();
 
         gbc.insets = new Insets(5, 5, 5, 5);
+
+        // Название
+
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.EAST;
@@ -63,6 +71,8 @@ public class TaskDialog extends JDialog {
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
         mainPanel.add(nameField, gbc);
+
+        // Описание
 
         gbc.gridx = 0;
         gbc.gridy = 1;
@@ -74,6 +84,8 @@ public class TaskDialog extends JDialog {
         JScrollPane descScrollPane = new JScrollPane(descriptionField);
         descScrollPane.setPreferredSize(new Dimension(200, 80));
         mainPanel.add(descScrollPane, gbc);
+
+        // Срок выполнения
 
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -91,6 +103,9 @@ public class TaskDialog extends JDialog {
         gbc.gridy = 3;
         gbc.anchor = GridBagConstraints.WEST;
         mainPanel.add(statusComboBox, gbc);
+
+        // Панель кнопок
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(saveButton);
         buttonPanel.add(cancelButton);
@@ -120,35 +135,55 @@ public class TaskDialog extends JDialog {
         statusComboBox.setSelectedItem(task.getStatus());
     }
 
+    /**
+     * Выполняет валидацию введенных данных и возвращает объект Task.
+     *
+     * @throws TaskValidationException Если данные некорректны или не прошли проверку.
+     */
+
     public Task getValidatedTask() throws TaskValidationException {
         String name = nameField.getText().trim();
         String description = descriptionField.getText().trim();
         String dateStr = dateField.getText().trim();
         TaskStatus status = (TaskStatus) statusComboBox.getSelectedItem();
+
         if (name.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Введите название задачи");
             throw new TaskValidationException("Название не может быть пустым");
         }
+
         LocalDate date = null;
         if (!dateStr.isEmpty()) {
             try {
                 date = LocalDate.parse(dateStr);
-                LOGGER.info("Парсинг: " + date);
+                LOGGER.info("Парсинг даты: " + date);
             } catch (DateTimeParseException e) {
                 LOGGER.warning("Некорректный формат даты: " + dateStr);
                 JOptionPane.showMessageDialog(this, "Некорректный формат даты");
                 throw new TaskValidationException("Некорректный формат даты");
             }
         }
+
         if (task == null) {
             LOGGER.info("Создается новая задача: " + name);
             return new Task(name, description, date, status);
         } else {
-            LOGGER.info("Задача обновлена: " + name);
+
+            String oldName = task.getName();
+            LocalDate oldDate = task.getDate();
+            String oldDescription = task.getDescription();
+            TaskStatus oldStatus = task.getStatus();
+
             task.setName(name);
             task.setDescription(description);
             task.setDate(date);
             task.setStatus(status);
+
+            LOGGER.info("Название до изменения: " + oldName + " Описание до изменения: " +
+                    oldDescription + " Дата до изменения: " + oldDate + " Статус до изменения: " + oldStatus);
+            LOGGER.info("После изменения: Название: " + task.getName() + " Описание: " +
+                    task.getDescription() + " Дата: " + task.getDate() + " Статус: " + task.getStatus());
+
             return task;
         }
     }
