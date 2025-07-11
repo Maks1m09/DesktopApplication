@@ -30,7 +30,7 @@ public class TaskApp extends JFrame {
     private JButton deleteButton;
     private JComboBox<String> filterComboBox;
     private final TaskManager taskManager;
-//    private final List<Task> allTasks;
+
 
     public TaskApp() {
         LOGGER.info("Инициализация приложения");
@@ -41,7 +41,6 @@ public class TaskApp extends JFrame {
 
         taskManager = new TaskManager();
         taskManager.setTasks(TaskStorage.load());
-//        allTasks = taskManager.getTasks();
 
         initComponents();
         layoutComponents();

@@ -91,17 +91,13 @@ public class TaskDialog extends JDialog {
         gbc.gridy = 3;
         gbc.anchor = GridBagConstraints.WEST;
         mainPanel.add(statusComboBox, gbc);
-
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(saveButton);
         buttonPanel.add(cancelButton);
-
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(mainPanel, BorderLayout.CENTER);
-
         JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         southPanel.add(buttonPanel);
-
         getContentPane().add(southPanel, BorderLayout.SOUTH);
     }
 

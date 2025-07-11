@@ -1,6 +1,5 @@
 package by.taskSetter.storage;
 
-
 import by.taskSetter.entity.Task;
 
 import javax.swing.*;
@@ -13,7 +12,6 @@ public class TaskStorage {
 
     private static final String FILE_NAME = System.getProperty("task.storage.file", "tasks.txt");
     private static final Logger LOGGER = Logger.getLogger(TaskStorage.class.getName());
-
 
     public static void save(List<Task> tasks) {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
