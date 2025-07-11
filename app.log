@@ -928,3 +928,59 @@ INFO: Пользователь подтвердил выход. Сохраняе
 INFO: Задачи успешно сохранены в файл
 июл. 11, 2025 6:24:43 PM by.taskSetter.ui.TaskApp$1 windowClosing
 INFO: Выход отменен пользователем
+июл. 11, 2025 7:13:07 PM by.taskSetter.Main lambda$main$0
+INFO: Запуск приложения
+июл. 11, 2025 7:13:07 PM by.taskSetter.ui.TaskApp <init>
+INFO: Инициализация приложения
+июл. 11, 2025 7:13:07 PM by.taskSetter.storage.TaskStorage load
+INFO: Задачи успешно загружены из файла
+июл. 11, 2025 7:13:07 PM by.taskSetter.ui.TaskApp initComponents
+INFO: Инициализация компонентов интерфейса
+июл. 11, 2025 7:13:08 PM by.taskSetter.ui.TaskApp layoutComponents
+INFO: Размещение компонентов интерфейса
+июл. 11, 2025 7:13:11 PM by.taskSetter.ui.TaskApp lambda$initListeners$3
+INFO: Выбран фильтр: Выполненные
+июл. 11, 2025 7:13:12 PM by.taskSetter.ui.TaskApp lambda$initListeners$3
+INFO: Выбран фильтр: Невыполненные
+июл. 11, 2025 7:13:14 PM by.taskSetter.ui.TaskApp lambda$initListeners$3
+INFO: Выбран фильтр: Все
+июл. 11, 2025 7:13:15 PM by.taskSetter.ui.TaskApp lambda$initListeners$0
+INFO: Кнопка 'Добавить' нажата
+июл. 11, 2025 7:13:23 PM by.taskSetter.ui.TaskDialog getValidatedTask
+INFO: Парсинг даты: 1212-12-12
+июл. 11, 2025 7:13:23 PM by.taskSetter.ui.TaskDialog getValidatedTask
+INFO: Создается новая задача: йцуйцу
+июл. 11, 2025 7:13:23 PM by.taskSetter.ui.TaskDialog getValidatedTask
+INFO: Парсинг даты: 1212-12-12
+июл. 11, 2025 7:13:23 PM by.taskSetter.ui.TaskDialog getValidatedTask
+INFO: Название до изменения: йцуйцу Описание до изменения: йцуйцу Дата до изменения: 1212-12-12 Статус до изменения: Не выполнена
+июл. 11, 2025 7:13:23 PM by.taskSetter.ui.TaskDialog getValidatedTask
+INFO: После изменения: Название: йцуйцу Описание: йцуйцу Дата: 1212-12-12 Статус: Не выполнена
+июл. 11, 2025 7:13:23 PM by.taskSetter.ui.TaskApp openTaskDialog
+INFO: Добавлена задача: йцуйцу
+июл. 11, 2025 7:13:23 PM by.taskSetter.ui.TaskApp lambda$initListeners$0
+INFO: Обновлен список задач после добавления
+июл. 11, 2025 7:13:28 PM by.taskSetter.ui.TaskApp lambda$initListeners$2
+INFO: Удаление отменено пользователем
+июл. 11, 2025 7:13:30 PM by.taskSetter.ui.TaskApp lambda$initListeners$1
+INFO: Редактирование задачи: йцуйцу
+июл. 11, 2025 7:13:30 PM by.taskSetter.ui.TaskApp lambda$initListeners$1
+INFO: Диалог редактирования завершен
+июл. 11, 2025 7:13:33 PM by.taskSetter.ui.TaskApp lambda$initListeners$3
+INFO: Выбран фильтр: Выполненные
+июл. 11, 2025 7:13:33 PM by.taskSetter.ui.TaskApp lambda$initListeners$3
+INFO: Выбран фильтр: Невыполненные
+июл. 11, 2025 7:13:35 PM by.taskSetter.ui.TaskApp lambda$initListeners$3
+INFO: Выбран фильтр: Все
+июл. 11, 2025 7:13:37 PM by.taskSetter.ui.TaskApp lambda$initListeners$2
+INFO: Удаление задачи: йцуйцу
+июл. 11, 2025 7:13:37 PM by.taskSetter.ui.TaskApp lambda$initListeners$2
+INFO: Задача удаленайцуйцу и список обновлен
+июл. 11, 2025 7:13:38 PM by.taskSetter.ui.TaskApp$1 windowClosing
+INFO: Закрытие приложения. Сохранение задач.
+июл. 11, 2025 7:13:39 PM by.taskSetter.ui.TaskApp$1 windowClosing
+INFO: Пользователь подтвердил выход. Сохраняем задачи
+июл. 11, 2025 7:13:39 PM by.taskSetter.storage.TaskStorage save
+INFO: Задачи успешно сохранены в файл
+июл. 11, 2025 7:13:39 PM by.taskSetter.ui.TaskApp$1 windowClosing
+INFO: Выход отменен пользователем
