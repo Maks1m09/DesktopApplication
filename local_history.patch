@@ -1,0 +1,165 @@
+Index: src/test/java/by/taskSetter/service/TaskManagerTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by/taskSetter/service/TaskManagerTest.java b/src/test/java/by/taskSetter/service/TaskManagerTest.java
+new file mode 100644
+--- /dev/null	(date 1752240076216)
++++ b/src/test/java/by/taskSetter/service/TaskManagerTest.java	(date 1752240076216)
+@@ -0,0 +1,71 @@
++package by.taskSetter.service;
++
++import by.taskSetter.entity.Task;
++import by.taskSetter.entity.TaskStatus;
++import org.junit.jupiter.api.BeforeEach;
++import org.junit.jupiter.api.Test;
++
++import java.time.LocalDate;
++import java.util.List;
++
++import static org.junit.jupiter.api.Assertions.*;
++
++public class TaskManagerTest {
++
++    private TaskManager taskManager;
++
++    @BeforeEach
++    public void setUp() {
++        taskManager = new TaskManager();
++    }
++
++    @Test
++    public void testInitialTasksIsEmpty() {
++        List<Task> tasks = taskManager.getTasks();
++        assertNotNull(tasks);
++        assertTrue(tasks.isEmpty(), "Первоначальный список задач должен быть пустым.");
++    }
++
++    @Test
++    public void testAddTask() {
++        Task task = new Task("Задача", "Описание", LocalDate.of(2023, 10, 1), TaskStatus.NOT_COMPLETED);
++        taskManager.addTask(task);
++        List<Task> tasks = taskManager.getTasks();
++        assertEquals(1, tasks.size());
++        assertEquals("Задача", tasks.get(0).getName());
++    }
++
++    @Test
++    public void testRemoveTask() {
++        Task task1 = new Task("Задача 1", "Описание 1", LocalDate.of(2023, 10, 2), TaskStatus.NOT_COMPLETED);
++        Task task2 = new Task("Задача 2", "Описание 2", LocalDate.of(2023, 10, 3), TaskStatus.COMPLETED);
++        taskManager.addTask(task1);
++        taskManager.addTask(task2);
++        taskManager.removeTask(task1);
++        List<Task> tasks = taskManager.getTasks();
++        assertEquals(1, tasks.size());
++        assertEquals("Задача 2", tasks.get(0).getName());
++    }
++
++    @Test
++    public void testUpdateTask() {
++        Task originalTask = new Task("Задача1", "Описание 1", LocalDate.of(2023, 10, 4), TaskStatus.NOT_COMPLETED);
++        taskManager.addTask(originalTask);
++        Task updatedTask = new Task("Задача обновленная", "Описание обновленное", LocalDate.of(2023, 11, 1), TaskStatus.COMPLETED);
++        taskManager.updateTask(0, updatedTask);
++        List<Task> tasks = taskManager.getTasks();
++        assertEquals(1, tasks.size());
++        assertEquals("Задача обновленная", tasks.get(0).getName());
++        assertEquals(TaskStatus.COMPLETED, tasks.get(0).getStatus());
++    }
++
++    @Test
++    public void testUpdateTaskInvalidIndex() {
++        taskManager.addTask(new Task("Задача1", "Описание", LocalDate.now(), TaskStatus.NOT_COMPLETED));
++        assertDoesNotThrow(() -> taskManager.updateTask(-1, new Task("Задача", "Описание", LocalDate.now(), TaskStatus.NOT_COMPLETED)));
++        assertDoesNotThrow(() -> taskManager.updateTask(10, new Task("Задача", "Описание", LocalDate.now(), TaskStatus.NOT_COMPLETED)));
++        List<Task> tasks = taskManager.getTasks();
++        assertEquals(1, tasks.size());
++    }
++}
++
+Index: src/test/java/by/taskSetter/storage/TaskStorageTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by/taskSetter/storage/TaskStorageTest.java b/src/test/java/by/taskSetter/storage/TaskStorageTest.java
+new file mode 100644
+--- /dev/null	(date 1752240076204)
++++ b/src/test/java/by/taskSetter/storage/TaskStorageTest.java	(date 1752240076204)
+@@ -0,0 +1,74 @@
++package by.taskSetter.storage;
++
++import by.taskSetter.entity.Task;
++import by.taskSetter.entity.TaskStatus;
++import org.junit.After;
++import org.junit.Before;
++import org.junit.Test;
++
++import java.io.File;
++import java.io.IOException;
++import java.time.LocalDate;
++import java.util.Arrays;
++import java.util.List;
++
++import static org.junit.Assert.*;
++
++public class TaskStorageTest {
++
++    private static final String TEST_FILE = "tasks_test.txt";
++
++    @Before
++    public void setUp() throws IOException {
++        System.setProperty("task.storage.file", TEST_FILE);
++        File file = new File(TEST_FILE);
++        if (file.exists() && !file.delete()) {
++            throw new IOException("Не удалось удалить " + TEST_FILE + " в setUp");
++        }
++    }
++
++    @After
++    public void cleanUpTestFile() throws IOException {
++        File file = new File(TEST_FILE);
++        if (file.exists() && !file.delete()) {
++            throw new IOException("Не удалось удалить " + TEST_FILE + " в cleanUpTestFile");
++        }
++    }
++
++    @Test
++    public void testSaveAndLoadTasks() {
++        List<Task> tasksToSave = Arrays.asList(
++                new Task("Задача 1", "Описание 1", LocalDate.of(2023, 10, 1), TaskStatus.NOT_COMPLETED),
++                new Task("Задача 2", "Описание 2", LocalDate.of(2023, 10, 2), TaskStatus.COMPLETED)
++        );
++        TaskStorage.save(tasksToSave);
++        List<Task> loadedTasks = TaskStorage.load();
++        assertNotNull(loadedTasks);
++        assertEquals(2, loadedTasks.size());
++        assertEquals("Задача 1", loadedTasks.get(0).getName());
++        assertEquals("Описание 1", loadedTasks.get(0).getDescription());
++        assertEquals(LocalDate.of(2023, 10, 1), loadedTasks.get(0).getDate());
++        assertEquals(TaskStatus.NOT_COMPLETED, loadedTasks.get(0).getStatus());
++        assertEquals("Задача 2", loadedTasks.get(1).getName());
++        assertEquals("Описание 2", loadedTasks.get(1).getDescription());
++        assertEquals(LocalDate.of(2023, 10, 2), loadedTasks.get(1).getDate());
++        assertEquals(TaskStatus.COMPLETED, loadedTasks.get(1).getStatus());
++    }
++
++    @Test
++    public void testLoadWhenFileDoesNotExist() {
++        File file = new File(TEST_FILE);
++        if (file.exists() && !file.delete()) {
++            throw new RuntimeException("Не удалось удалить " + TEST_FILE);
++        }
++        assertFalse(file.exists());
++        List<Task> loadedTasks = TaskStorage.load();
++        assertNotNull(loadedTasks);
++        assertTrue(loadedTasks.isEmpty());
++    }
++}
++
++
++
++
++

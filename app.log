@@ -1,0 +1,94 @@
+июл. 11, 2025 4:34:50 PM by.taskSetter.Main lambda$main$0
+INFO: Запуск приложения
+июл. 11, 2025 4:34:51 PM by.taskSetter.ui.TaskApp <init>
+INFO: Инициализация приложения
+июл. 11, 2025 4:34:51 PM by.taskSetter.ui.TaskApp initComponents
+INFO: Инициализация компонентов интерфейса
+июл. 11, 2025 4:34:51 PM by.taskSetter.ui.TaskApp layoutComponents
+INFO: Размещение компонентов интерфейса
+июл. 11, 2025 4:35:03 PM by.taskSetter.ui.TaskApp lambda$initListeners$0
+INFO: Кнопка 'Добавить' нажата
+июл. 11, 2025 4:35:36 PM by.taskSetter.ui.TaskApp lambda$initListeners$0
+INFO: Обновлен список задач после добавления
+июл. 11, 2025 4:35:39 PM by.taskSetter.ui.TaskApp$1 windowClosing
+INFO: Закрытие приложения. Сохранение задач.
+июл. 11, 2025 4:35:40 PM by.taskSetter.ui.TaskApp$1 windowClosing
+INFO: Пользователь подтвердил выход. Сохраняем задачи
+июл. 11, 2025 4:35:40 PM by.taskSetter.storage.TaskStorage save
+INFO: Задачи успешно сохранены в файл
+июл. 11, 2025 4:35:40 PM by.taskSetter.ui.TaskApp$1 windowClosing
+INFO: Выход отменен пользователем
+июл. 11, 2025 4:38:12 PM by.taskSetter.Main lambda$main$0
+INFO: Запуск приложения
+июл. 11, 2025 4:38:13 PM by.taskSetter.ui.TaskApp <init>
+INFO: Инициализация приложения
+июл. 11, 2025 4:38:13 PM by.taskSetter.storage.TaskStorage load
+INFO: Задачи успешно загружены из файла
+июл. 11, 2025 4:38:13 PM by.taskSetter.ui.TaskApp initComponents
+INFO: Инициализация компонентов интерфейса
+июл. 11, 2025 4:38:13 PM by.taskSetter.ui.TaskApp layoutComponents
+INFO: Размещение компонентов интерфейса
+июл. 11, 2025 4:38:15 PM by.taskSetter.ui.TaskApp lambda$initListeners$3
+INFO: Выбран фильтр: Выполненные
+июл. 11, 2025 4:38:18 PM by.taskSetter.ui.TaskApp lambda$initListeners$1
+WARNING: Попытка редактировать задачу без выбора
+июл. 11, 2025 4:38:25 PM by.taskSetter.ui.TaskApp lambda$initListeners$0
+INFO: Кнопка 'Добавить' нажата
+июл. 11, 2025 4:38:32 PM by.taskSetter.ui.TaskDialog getValidatedTask
+INFO: Парсинг: 1212-12-12
+июл. 11, 2025 4:38:32 PM by.taskSetter.ui.TaskDialog getValidatedTask
+INFO: Создается новая задача: 12
+июл. 11, 2025 4:38:32 PM by.taskSetter.ui.TaskDialog getValidatedTask
+INFO: Парсинг: 1212-12-12
+июл. 11, 2025 4:38:32 PM by.taskSetter.ui.TaskDialog getValidatedTask
+INFO: Задача обновлена: 12
+июл. 11, 2025 4:38:32 PM by.taskSetter.ui.TaskApp openTaskDialog
+INFO: Добавлена задача: 12
+июл. 11, 2025 4:38:32 PM by.taskSetter.ui.TaskApp lambda$initListeners$0
+INFO: Обновлен список задач после добавления
+июл. 11, 2025 4:38:36 PM by.taskSetter.ui.TaskApp$1 windowClosing
+INFO: Закрытие приложения. Сохранение задач.
+июл. 11, 2025 4:38:37 PM by.taskSetter.ui.TaskApp$1 windowClosing
+INFO: Пользователь подтвердил выход. Сохраняем задачи
+июл. 11, 2025 4:38:37 PM by.taskSetter.storage.TaskStorage save
+INFO: Задачи успешно сохранены в файл
+июл. 11, 2025 4:38:37 PM by.taskSetter.ui.TaskApp$1 windowClosing
+INFO: Выход отменен пользователем
+июл. 11, 2025 4:39:20 PM by.taskSetter.Main lambda$main$0
+INFO: Запуск приложения
+июл. 11, 2025 4:39:20 PM by.taskSetter.ui.TaskApp <init>
+INFO: Инициализация приложения
+июл. 11, 2025 4:39:20 PM by.taskSetter.storage.TaskStorage load
+INFO: Задачи успешно загружены из файла
+июл. 11, 2025 4:39:20 PM by.taskSetter.ui.TaskApp initComponents
+INFO: Инициализация компонентов интерфейса
+июл. 11, 2025 4:39:20 PM by.taskSetter.ui.TaskApp layoutComponents
+INFO: Размещение компонентов интерфейса
+июл. 11, 2025 4:39:25 PM by.taskSetter.ui.TaskApp lambda$initListeners$0
+INFO: Кнопка 'Добавить' нажата
+июл. 11, 2025 4:39:32 PM by.taskSetter.ui.TaskDialog getValidatedTask
+INFO: Парсинг: 1212-12-12
+июл. 11, 2025 4:39:32 PM by.taskSetter.ui.TaskDialog getValidatedTask
+INFO: Создается новая задача: 1212
+июл. 11, 2025 4:39:32 PM by.taskSetter.ui.TaskDialog getValidatedTask
+INFO: Парсинг: 1212-12-12
+июл. 11, 2025 4:39:32 PM by.taskSetter.ui.TaskDialog getValidatedTask
+INFO: Задача обновлена: 1212
+июл. 11, 2025 4:39:32 PM by.taskSetter.ui.TaskApp openTaskDialog
+INFO: Добавлена задача: 1212
+июл. 11, 2025 4:39:32 PM by.taskSetter.ui.TaskApp lambda$initListeners$0
+INFO: Обновлен список задач после добавления
+июл. 11, 2025 4:39:34 PM by.taskSetter.ui.TaskApp lambda$initListeners$3
+INFO: Выбран фильтр: Невыполненные
+июл. 11, 2025 4:39:35 PM by.taskSetter.ui.TaskApp lambda$initListeners$3
+INFO: Выбран фильтр: Выполненные
+июл. 11, 2025 4:39:37 PM by.taskSetter.ui.TaskApp lambda$initListeners$3
+INFO: Выбран фильтр: Все
+июл. 11, 2025 4:39:55 PM by.taskSetter.ui.TaskApp$1 windowClosing
+INFO: Закрытие приложения. Сохранение задач.
+июл. 11, 2025 4:39:56 PM by.taskSetter.ui.TaskApp$1 windowClosing
+INFO: Пользователь подтвердил выход. Сохраняем задачи
+июл. 11, 2025 4:39:56 PM by.taskSetter.storage.TaskStorage save
+INFO: Задачи успешно сохранены в файл
+июл. 11, 2025 4:39:56 PM by.taskSetter.ui.TaskApp$1 windowClosing
+INFO: Выход отменен пользователем
